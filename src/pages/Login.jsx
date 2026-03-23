@@ -33,9 +33,7 @@ const Login = () => {
     const handleChange = (e) => {
         setForm({ ...form, [e.target.name]: e.target.value })
     }
-    if(!user){
-        return <p>is Loading..</p>
-    }
+    
     return (
         <div className='flex justify-center min-h-screen items-center bg-amber-100'>
             <form onSubmit={handleSubmit} className='item-center flex justify-center flex-col gap-3 bg-white rounded-xl shadow-md p-8 w-full max-w-sm'>

@@ -3,7 +3,8 @@ import { useNavigate } from 'react-router-dom'
 
 const Dashboard = () => {
     const navigate = useNavigate();
-    const [user,setUser] = useState(null);
+    const [user, setUser] = useState(null);
+
     useEffect(() => {
         const token = localStorage.getItem('token')
         if (!token) {
@@ -28,17 +29,25 @@ const Dashboard = () => {
         fetchFN();
     }, [])
 
-    if(!user){
+    if (!user) {
         return <p>is Loading..</p>
     }
-    
+
+    const logout = ()=>{
+        localStorage.removeItem('token');
+        navigate('/login');
+    }
+
     return (
         <div>
-        {user && <p>ยินดีต้อนรับ, {user.display_name}!</p>}
-        <p>ข้อมูลของคุณคือ</p>
-        <p>ID : {user.id}</p>
-        <p>email : {user.email}</p>
-        <p>display_name : {user.display_name}</p>
+            {user && <p>ยินดีต้อนรับ, {user.display_name}!</p>}
+            <p>ข้อมูลของคุณคือ</p>
+            <p>ID : {user.id}</p>
+            <p>email : {user.email}</p>
+            <p>display_name : {user.display_name}</p>
+            <button className='bg-blue-700 text-white border rounded px-5 py-2 font-bold my-6 cursor-pointer active:scale-98' onClick={logout}>
+                Log Out
+            </button>
         </div>
     )
 }
