@@ -13,7 +13,8 @@ const Dashboard = () => {
         }
         const fetchFN = async () => {
             try {
-                const resp = await fetch('http://localhost:3000/api/auth/me', {
+                const API_URL = import.meta.env.VITE_API_URL;
+                const resp = await fetch(`${API_URL}/api/auth/me`, {
                     method: 'GET',
                     headers: {
                         'Authorization': `Bearer ${token}`
