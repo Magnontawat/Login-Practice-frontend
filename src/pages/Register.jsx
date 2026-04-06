@@ -1,6 +1,6 @@
 import { useState } from "react"
 
-function register() {
+function Register() {
   const [message,setMessage] = useState("")
   const [status,setStatus] = useState(null)
   const [form,setForm] = useState({
@@ -56,4 +56,4 @@ function register() {
   )
 }
 
-export default register
+export default Register
