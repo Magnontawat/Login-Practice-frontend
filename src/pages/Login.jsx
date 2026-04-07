@@ -6,7 +6,7 @@ const Login = () => {
     const [form, setForm] = useState({
         email: "",
         password: ""
-        
+
     })
     const [message,setMessage] = useState("");
     const handleSubmit = async (e) => {
@@ -19,6 +19,8 @@ const Login = () => {
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify(form)
                 }
+
+                
             )
               const data = await resp.json()
               console.log(data);
